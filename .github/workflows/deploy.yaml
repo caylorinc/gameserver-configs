@@ -22,9 +22,10 @@ jobs:
             StrictHostKeyChecking no
           END
         env:
-          SSH_USER: ${{ env.SERVER_USERNAME }}
-          SSH_HOST: ${{ env.SERVER_HOSTNAME }}
+          SSH_USER: ${{ vars.SERVER_USERNAME }}
+          SSH_HOST: ${{ vars.SERVER_HOSTNAME }}
           SSH_KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
       - name: Put a file on the server
         run: |
+          cat ~/.ssh/config
           ssh rust1 'echo test >> testfile'
