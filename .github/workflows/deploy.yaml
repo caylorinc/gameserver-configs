@@ -22,8 +22,8 @@ jobs:
             StrictHostKeyChecking no
           END
         env:
-          SSH_USER: ${{ secrets.SERVER_USERNAME }}
-          SSH_HOST: ${{ secrets.SERVER_HOSTNAME }}
+          SSH_USER: ${{ env.SERVER_USERNAME }}
+          SSH_HOST: ${{ env.SERVER_HOSTNAME }}
           SSH_KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
       - name: Put a file on the server
         run: |
